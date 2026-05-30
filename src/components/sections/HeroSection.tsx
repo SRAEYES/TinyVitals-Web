@@ -59,10 +59,10 @@ export function HeroSection() {
           </button>
         </motion.div>
       </div>
-    <VideoModal isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />
-    </>
       
       <div className="absolute bottom-0 inset-x-0 h-32 bg-linear-to-t from-background to-transparent z-10" />
     </section>
+    <VideoModal isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />
+    </>
   );
 }
