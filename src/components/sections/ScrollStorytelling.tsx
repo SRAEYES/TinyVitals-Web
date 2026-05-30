@@ -29,16 +29,14 @@ const stories = [
 
 export function ScrollStorytelling() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
   return (
-    <section ref={containerRef} className="relative bg-background py-32">
-      <div className="h-[400vh]" />
-      <div ref={contentRef} className="sticky top-0 h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden">
+    <section ref={containerRef} className="relative bg-background" style={{ height: "600vh" }}>
+      <div className="sticky top-0 h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden">
         
         {/* Left Side: Dynamic Text */}
         <div className="w-full lg:w-1/2 flex items-center justify-center p-12 lg:p-24 h-1/2 lg:h-full relative z-10">
@@ -130,7 +128,6 @@ export function ScrollStorytelling() {
         </div>
 
       </div>
-      <div className="h-[100vh]" />
     </section>
   );
 }
