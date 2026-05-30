@@ -45,16 +45,22 @@ export function ScrollStorytelling() {
               const itemHeight = 1 / stories.length;
               const scrollStart = index * itemHeight;
               const scrollEnd = (index + 1) * itemHeight;
+              
+              // Ensure strictly monotonic offsets
+              const offset1 = Math.max(0, Math.min(scrollStart - 0.05, scrollStart));
+              const offset2 = scrollStart;
+              const offset3 = scrollEnd;
+              const offset4 = Math.min(1, Math.max(scrollEnd + 0.05, scrollEnd));
 
               const opacity = useTransform(
                 scrollYProgress,
-                [scrollStart - 0.1, scrollStart, scrollEnd, scrollEnd + 0.1],
+                [offset1, offset2, offset3, offset4],
                 [0, 1, 1, 0]
               );
               
               const y = useTransform(
                 scrollYProgress,
-                [scrollStart - 0.1, scrollStart, scrollEnd, scrollEnd + 0.1],
+                [offset1, offset2, offset3, offset4],
                 [40, 0, 0, -40]
               );
 
@@ -88,10 +94,16 @@ export function ScrollStorytelling() {
               const itemHeight = 1 / stories.length;
               const scrollStart = index * itemHeight;
               const scrollEnd = (index + 1) * itemHeight;
+              
+              // Ensure strictly monotonic offsets
+              const offset1 = Math.max(0, Math.min(scrollStart - 0.05, scrollStart));
+              const offset2 = scrollStart;
+              const offset3 = scrollEnd;
+              const offset4 = Math.min(1, Math.max(scrollEnd + 0.05, scrollEnd));
 
               const opacity = useTransform(
                 scrollYProgress,
-                [scrollStart - 0.1, scrollStart, scrollEnd, scrollEnd + 0.1],
+                [offset1, offset2, offset3, offset4],
                 [0, 1, 1, 0]
               );
 
