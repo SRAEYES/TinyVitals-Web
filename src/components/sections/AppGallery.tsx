@@ -1,15 +1,16 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
 const appScreens = [
-  { title: "Growth Tracking", subtitle: "Interactive charts and milestones" },
-  { title: "Vaccination Manager", subtitle: "Smart scheduling and reminders" },
-  { title: "Symptom Logger", subtitle: "Visual tracking and reports" },
-  { title: "Medical Records", subtitle: "Secure cloud vault" },
-  { title: "AI Summaries", subtitle: "Instant health insights" },
-  { title: "Multi-Child", subtitle: "Manage all children in one app" },
+  { title: "Growth Tracking", subtitle: "Interactive charts and milestones", image: "/tracker.jpeg" },
+  { title: "Vaccination Manager", subtitle: "Smart scheduling and reminders", image: "/Vaccination.jpeg" },
+  { title: "Symptom Logger", subtitle: "Visual tracking and reports", image: "/Symptomps.jpeg" },
+  { title: "Medical Records", subtitle: "Secure cloud vault", image: "/Record.jpeg" },
+  { title: "Milestones", subtitle: "Developmental tracking", image: "/milestones.jpeg" },
+  { title: "Multi-Child", subtitle: "Manage all children in one app", image: "/multiChildProfile.jpeg" },
 ];
 
 export function AppGallery() {
@@ -35,28 +36,39 @@ export function AppGallery() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group"
+              whileHover={{ y: -15 }}
+              className="group cursor-pointer"
             >
-              <div className="relative h-96 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/30 transition-colors bg-linear-to-br from-accent/10 to-secondary/10 shadow-xl">
-                {/* Phone Frame */}
-                <div className="absolute inset-6 rounded-2xl bg-card border-2 border-foreground/10 overflow-hidden shadow-inner">
-                  <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-50 bg-foreground/5">
-                    <div className="w-1/3 h-full bg-foreground/20 rounded-b-lg" />
-                  </div>
-                  
-                  <div className="absolute inset-0 pt-8 flex flex-col items-center justify-center space-y-4 p-4 overflow-hidden">
-                    <div className="w-full h-20 rounded-xl bg-linear-to-r from-accent/20 to-secondary/20 animate-pulse" />
-                    <div className="space-y-3 w-full">
-                      <div className="h-3 bg-foreground/10 rounded-full w-3/4 animate-pulse" />
-                      <div className="h-3 bg-foreground/10 rounded-full w-full animate-pulse" />
-                      <div className="h-3 bg-foreground/10 rounded-full w-2/3 animate-pulse" />
-                    </div>
-                    <div className="w-full h-24 rounded-lg bg-linear-to-r from-secondary/20 to-accent/20 mt-4 animate-pulse" />
-                  </div>
-                </div>
+              <div className="relative h-96 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/30 transition-all bg-card shadow-xl">
+                {/* Phone Frame Background */}
+                <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-secondary/5" />
+                
+                {/* Actual App Screenshot */}
+                <Image
+                  src={screen.image}
+                  alt={screen.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100%, 400px"
+                />
 
-                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Phone Frame Decorative Notch */}
+                <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-50">
+                  <div className="w-1/3 h-full bg-foreground rounded-b-2xl" />
+                </div>
+                
+                {/* Overlay on Hover */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent flex items-end p-6"
+                >
+                  <div className="text-white">
+                    <h3 className="text-lg font-semibold mb-1">{screen.title}</h3>
+                    <p className="text-white/80 text-sm">{screen.subtitle}</p>
+                  </div>
+                </motion.div>
               </div>
 
               <div className="mt-6">
