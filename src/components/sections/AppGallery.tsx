@@ -25,7 +25,7 @@ export function AppGallery() {
             App Gallery
           </h2>
           <p className="text-lg text-foreground/70">
-            Explore the beautiful interface of TinyVitals. Available on iPhone and iPad.
+            Explore the beautiful interface of TinyVitals. Available on iPhone.
           </p>
         </div>
 
