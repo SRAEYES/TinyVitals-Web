@@ -3,10 +3,15 @@
 import { motion } from "framer-motion";
 import { DNARibbon } from "@/components/3d/DNARibbon";
 import { Play } from "lucide-react";
+import { useState } from "react";
+import { VideoModal } from "@/components/VideoModal";
 
 export function HeroSection() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <>
+      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       <DNARibbon />
       
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
@@ -45,12 +50,17 @@ export function HeroSection() {
           >
             Download on App Store
           </a>
-          <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-background border border-border text-foreground font-medium hover:bg-foreground/5 active:scale-95 transition-all flex items-center justify-center gap-2 group">
+          <button
+            onClick={() => setIsVideoOpen(true)}
+            className="w-full sm:w-auto px-8 py-4 rounded-full bg-background border border-border text-foreground font-medium hover:bg-foreground/5 active:scale-95 transition-all flex items-center justify-center gap-2 group"
+          >
             <Play size={18} className="text-accent group-hover:scale-110 transition-transform" />
             Watch Demo
           </button>
         </motion.div>
       </div>
+    <VideoModal isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />
+    </>
       
       <div className="absolute bottom-0 inset-x-0 h-32 bg-linear-to-t from-background to-transparent z-10" />
     </section>

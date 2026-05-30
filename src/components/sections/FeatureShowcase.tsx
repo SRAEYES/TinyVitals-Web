@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { LineChart, Syringe, Activity, FileText, Brain, Mic, Users } from "lucide-react";
 
 const features = [
@@ -52,6 +52,10 @@ const features = [
 export function FeatureShowcase() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
 
   return (
     <section id="features" className="py-32 bg-background relative z-10" ref={ref}>
@@ -67,12 +71,25 @@ export function FeatureShowcase() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 auto-rows-[250px]">
-          {features.map((feature, idx) => (
+          {features.map((feature, idx) => {
+            const yOffset = useTransform(
+              scrollYProgress,
+              [0, 1],
+              [80 - idx * 10, -80 + idx * 10]
+            );
+            const opacity = useTransform(
+              scrollYProgress,
+              [0, 0.2, 0.8, 1],
+              [0, 1, 1, 0]
+            );
+
+            return (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
+              style={{ y: yOffset, opacity }}
               className={`relative overflow-hidden rounded-[2.5rem] bg-card border border-border/50 p-8 flex flex-col justify-between group hover:border-accent/30 transition-colors ${feature.colSpan}`}
             >
               <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -88,7 +105,8 @@ export function FeatureShowcase() {
                 </p>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
