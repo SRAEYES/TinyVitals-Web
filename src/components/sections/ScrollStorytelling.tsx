@@ -35,7 +35,7 @@ export function ScrollStorytelling() {
   });
 
   return (
-    <section ref={containerRef} className="relative bg-background" style={{ height: "600vh" }}>
+    <section ref={containerRef} className="relative bg-background" style={{ height: "400vh" }}>
       <div className="sticky top-0 h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden">
         
         {/* Left Side: Dynamic Text */}
@@ -46,11 +46,11 @@ export function ScrollStorytelling() {
               const scrollStart = index * itemHeight;
               const scrollEnd = (index + 1) * itemHeight;
               
-              // Ensure strictly monotonic offsets
-              const offset1 = Math.max(0, Math.min(scrollStart - 0.05, scrollStart));
-              const offset2 = scrollStart;
-              const offset3 = scrollEnd;
-              const offset4 = Math.min(1, Math.max(scrollEnd + 0.05, scrollEnd));
+              // No overlap - smooth sequential transitions
+              const offset1 = scrollStart;
+              const offset2 = scrollStart + (itemHeight * 0.15);
+              const offset3 = scrollEnd - (itemHeight * 0.15);
+              const offset4 = scrollEnd;
 
               const opacity = useTransform(
                 scrollYProgress,
@@ -85,11 +85,6 @@ export function ScrollStorytelling() {
         {/* Right Side: App Screenshots */}
         <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center relative">
           <div className="relative w-72 h-[540px] md:w-80 md:h-[600px] rounded-[3rem] border-8 border-foreground/20 overflow-hidden shadow-2xl bg-card flex-shrink-0">
-            {/* Phone Screen Notch */}
-            <div className="absolute top-0 inset-x-0 h-7 flex justify-center z-50">
-              <div className="w-40 h-full bg-foreground rounded-b-3xl" />
-            </div>
-
             {stories.map((story, index) => {
               const itemHeight = 1 / stories.length;
               const scrollStart = index * itemHeight;

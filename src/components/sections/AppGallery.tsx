@@ -51,11 +51,6 @@ export function AppGallery() {
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100%, 400px"
                 />
-
-                {/* Phone Frame Decorative Notch */}
-                <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-50">
-                  <div className="w-1/3 h-full bg-foreground rounded-b-2xl" />
-                </div>
                 
                 {/* Overlay on Hover */}
                 <motion.div
