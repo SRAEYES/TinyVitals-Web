@@ -49,15 +49,23 @@ export function ScrollStorytelling() {
               const start = index / stories.length;
               const end = (index + 1) / stories.length;
               
+              // Create strictly monotonically increasing offset arrays within 0-1 range
+              const opacityOffsets = [
+                Math.max(0, start - 0.05),
+                start,
+                end,
+                Math.min(1, end + 0.05)
+              ];
+              
               // Calculate opacity and y position based on scroll progress
               const opacity = useTransform(
                 scrollYProgress,
-                [start - 0.05, start + 0.05, end - 0.05, end + 0.05],
+                opacityOffsets,
                 [0, 1, 1, 0]
               );
               const y = useTransform(
                 scrollYProgress,
-                [start - 0.05, start + 0.05, end - 0.05, end + 0.05],
+                opacityOffsets,
                 [50, 0, 0, -50]
               );
 
@@ -91,21 +99,29 @@ export function ScrollStorytelling() {
               const start = index / stories.length;
               const end = (index + 1) / stories.length;
               
+              // Create strictly monotonically increasing offset arrays within 0-1 range
+              const offsets = [
+                Math.max(0, start - 0.1),
+                start,
+                end,
+                Math.min(1, end + 0.1)
+              ];
+              
               const y = useTransform(
                 scrollYProgress,
-                [start - 0.1, start + 0.1, end - 0.1, end + 0.1],
+                offsets,
                 [100, 0, 0, -100]
               );
               
               const scale = useTransform(
                 scrollYProgress,
-                [start - 0.1, start + 0.1, end - 0.1, end + 0.1],
+                offsets,
                 [0.9, 1, 1, 0.9]
               );
               
               const opacity = useTransform(
                 scrollYProgress,
-                [start - 0.1, start + 0.1, end - 0.1, end + 0.1],
+                offsets,
                 [0, 1, 1, 0]
               );
 

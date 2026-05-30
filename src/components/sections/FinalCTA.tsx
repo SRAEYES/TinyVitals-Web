@@ -3,6 +3,16 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
+// Deterministic position generation based on index (ensures SSR/client consistency)
+const getPosition = (index: number): { x: number; y: number; duration: number; delay: number } => {
+  // Use simple modulo-based deterministic values
+  const x = (index * 37 % 100);
+  const y = (index * 67 % 100);
+  const duration = 2 + (index % 3);
+  const delay = (index % 2);
+  return { x, y, duration, delay };
+};
+
 export function FinalCTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -12,25 +22,28 @@ export function FinalCTA() {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,91,138,0.1),transparent_50%)]" />
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full pointer-events-none">
-          {[...Array(50)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 rounded-full bg-white/30"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                opacity: [0.2, 0.8, 0.2],
-                y: [0, -30, 0],
-              }}
-              transition={{
-                duration: Math.random() * 3 + 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
+          {[...Array(50)].map((_, i) => {
+            const pos = getPosition(i);
+            return (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 rounded-full bg-white/30"
+                style={{
+                  left: `${pos.x}%`,
+                  top: `${pos.y}%`,
+                }}
+                animate={{
+                  opacity: [0.2, 0.8, 0.2],
+                  y: [0, -30, 0],
+                }}
+                transition={{
+                  duration: pos.duration,
+                  repeat: Infinity,
+                  delay: pos.delay,
+                }}
+              />
+            );
+          })}
         </div>
       </div>
 
