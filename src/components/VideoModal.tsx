@@ -44,7 +44,7 @@ export function VideoModal({ isOpen, onClose }: VideoModalProps) {
             className="w-full h-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <source src="/assets/TVvideo.mp4" type="video/mp4" />
+            <source src="/TVvideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
