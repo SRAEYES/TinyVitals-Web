@@ -5,11 +5,11 @@ import { motion, useInView } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const stats = [
-  { value: 97, suffix: "%", label: "Functional Test Success" },
-  { value: 100, suffix: "%", label: "AI-Powered Summaries" },
-  { value: 100, suffix: "%", label: "WHO + IAP Vaccination Tracking" },
-  { value: 100, suffix: "%", label: "Multi Child Profiles" },
-  { value: 2, suffix: "", label: "Platform Support (iPhone + iPad)" },
+  { value: 24, suffix: "/7", label: "Always Available" },
+  { value: 256, suffix: "-bit", label: "Encryption Standard" },
+  { value: 100, suffix: "%", label: "HIPAA Compliant" },
+  { value: 50, suffix: "ms", label: "Average Response Time" },
+  { value: 99, suffix: "%", label: "Uptime Guarantee" },
 ];
 
 function AnimatedCounter({ value, suffix, duration = 2 }: { value: number; suffix: string; duration?: number }) {

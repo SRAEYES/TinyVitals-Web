@@ -82,21 +82,6 @@ export function TrustPrivacy() {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-          className="mt-16 p-8 rounded-2xl bg-card border border-border/50 backdrop-blur-sm"
-        >
-          <p className="text-center text-foreground/80">
-            <span className="font-semibold text-accent">HIPAA Compliant • GDPR Certified • SOC 2 Type II</span>
-            <br />
-            <span className="text-sm text-foreground/60 mt-2 block">
-              TinyVitals adheres to the highest standards of healthcare data protection and privacy regulations.
-            </span>
-          </p>
-        </motion.div>
       </div>
     </section>
   );

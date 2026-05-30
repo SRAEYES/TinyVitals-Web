@@ -4,9 +4,60 @@ import { motion } from "framer-motion";
 import { DNARibbon } from "@/components/3d/DNARibbon";
 import { Play } from "lucide-react";
 
+// Floating element component
+const FloatingElement = ({ delay, duration, x, y }: { delay: number; duration: number; x: number; y: number }) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0 }}
+    animate={{ opacity: 0.5, scale: 1 }}
+    transition={{ delay, duration: 0.8 }}
+    className="absolute w-2 h-2 rounded-full bg-accent/30"
+    style={{
+      left: `${x}%`,
+      top: `${y}%`,
+    }}
+  >
+    <motion.div
+      animate={{
+        y: [0, -20, 0],
+        x: [0, 10, 0],
+        opacity: [0.5, 0.8, 0.5],
+      }}
+      transition={{
+        duration,
+        repeat: Infinity,
+        delay,
+        ease: "easeInOut",
+      }}
+      className="w-full h-full"
+    />
+  </motion.div>
+);
+
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      {/* Floating elements background */}
+      <div className="absolute inset-0">
+        {[...Array(15)].map((_, i) => (
+          <FloatingElement
+            key={i}
+            delay={i * 0.1}
+            duration={4 + (i % 2)}
+            x={10 + (i % 3) * 20}
+            y={20 + (i % 5) * 15}
+          />
+        ))}
+        {[...Array(15)].map((_, i) => (
+          <FloatingElement
+            key={`right-${i}`}
+            delay={i * 0.1}
+            duration={4 + (i % 2)}
+            x={70 + (i % 3) * 10}
+            y={30 + (i % 5) * 12}
+          />
+        ))}
+      </div>
+
       <DNARibbon />
       
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
