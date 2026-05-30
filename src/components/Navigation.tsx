@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Menu, X, Activity } from "lucide-react";
+import { Menu, Activity } from "lucide-react";
 
 export function Navigation() {
   const [hidden, setHidden] = useState(false);
@@ -32,7 +32,7 @@ export function Navigation() {
       
       <div className="relative w-full max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-accent to-secondary flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,91,138,0.5)] group-hover:shadow-[0_0_25px_rgba(255,91,138,0.8)] transition-shadow duration-300">
+          <div className="w-8 h-8 rounded-full bg-linear-to-tr from-accent to-secondary flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,91,138,0.5)] group-hover:shadow-[0_0_25px_rgba(255,91,138,0.8)] transition-shadow duration-300">
             <Activity size={18} />
           </div>
           <span className="font-bold text-xl tracking-tight">TinyVitals</span>

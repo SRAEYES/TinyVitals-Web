@@ -42,7 +42,7 @@ export function FinalCTA() {
         >
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
             Start Protecting <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-secondary to-accent">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-accent via-secondary to-accent">
               What Matters Most
             </span>
           </h2>

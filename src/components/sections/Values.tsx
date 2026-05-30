@@ -64,11 +64,11 @@ export function Values() {
               className="group"
             >
               <div className="relative p-10 rounded-3xl bg-card border border-border/50 h-full overflow-hidden hover:border-accent/30 transition-colors">
-                <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-5 group-hover:opacity-10 transition-opacity`} />
-                <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-gradient-to-br from-white/10 to-transparent blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className={`absolute inset-0 bg-linear-to-br ${value.color} opacity-5 group-hover:opacity-10 transition-opacity`} />
+                <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-linear-to-br from-white/10 to-transparent blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
                 
                 <div className="relative z-10">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${value.color} text-white flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+                  <div className={`w-14 h-14 rounded-2xl bg-linear-to-br ${value.color} text-white flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
                     {value.icon}
                   </div>
                   <h3 className="text-2xl font-bold mb-4">{value.title}</h3>

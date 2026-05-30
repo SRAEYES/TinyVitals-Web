@@ -69,7 +69,7 @@ export function TrustPrivacy() {
               className="relative group"
             >
               <div className="relative p-8 rounded-2xl bg-card border border-border/50 hover:border-accent/30 transition-colors h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-secondary/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative z-10">
                   <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mb-6 text-accent group-hover:scale-110 transition-transform">

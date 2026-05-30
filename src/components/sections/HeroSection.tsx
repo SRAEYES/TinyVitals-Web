@@ -21,7 +21,7 @@ export function HeroSection() {
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6">
             Every Child's <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-secondary to-accent bg-[length:200%_auto] animate-gradient">Health Story.</span>
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-accent via-secondary to-accent bg-[length:200%_auto] animate-gradient">Health Story.</span>
           </h1>
           <h2 className="text-2xl md:text-3xl text-foreground/80 font-medium mb-8">
             Organized. Protected. Intelligent.
@@ -52,7 +52,7 @@ export function HeroSection() {
         </motion.div>
       </div>
       
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
+      <div className="absolute bottom-0 inset-x-0 h-32 bg-linear-to-t from-background to-transparent z-10" />
     </section>
   );
 }

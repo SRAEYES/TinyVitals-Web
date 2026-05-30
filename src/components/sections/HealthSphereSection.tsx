@@ -10,7 +10,7 @@ export function HealthSphereSection() {
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
           Your Child's <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-secondary to-accent">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-accent via-secondary to-accent">
             Complete Health Story
           </span>
         </h2>

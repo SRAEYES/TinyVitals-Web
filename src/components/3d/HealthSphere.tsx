@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Sphere, MeshDistortMaterial } from "@react-three/drei";
 import * as THREE from "three";
@@ -34,12 +34,17 @@ function AnimatedSphere() {
 export function HealthSphere() {
   return (
     <div className="absolute inset-0 z-0">
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
-        <ambientLight intensity={1} />
-        <directionalLight position={[10, 10, 5]} intensity={2} color="#4CC9F0" />
-        <directionalLight position={[-10, -10, -5]} intensity={1} color="#6A5CFF" />
-        <AnimatedSphere />
-      </Canvas>
+      <Suspense fallback={null}>
+        <Canvas 
+          camera={{ position: [0, 0, 5], fov: 45 }}
+          style={{ width: "100%", height: "100%" }}
+        >
+          <ambientLight intensity={1} />
+          <directionalLight position={[10, 10, 5]} intensity={2} color="#4CC9F0" />
+          <directionalLight position={[-10, -10, -5]} intensity={1} color="#6A5CFF" />
+          <AnimatedSphere />
+        </Canvas>
+      </Suspense>
     </div>
   );
 }

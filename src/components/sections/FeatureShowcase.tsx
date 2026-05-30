@@ -75,7 +75,7 @@ export function FeatureShowcase() {
               transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
               className={`relative overflow-hidden rounded-[2.5rem] bg-card border border-border/50 p-8 flex flex-col justify-between group hover:border-accent/30 transition-colors ${feature.colSpan}`}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="w-14 h-14 rounded-2xl bg-background/50 backdrop-blur-sm border border-border flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-500">
                 {feature.icon}

@@ -113,7 +113,7 @@ export function ScrollStorytelling() {
                 <motion.div
                   key={`screen-${index}`}
                   style={{ opacity, y, scale }}
-                  className={`absolute inset-0 bg-gradient-to-br ${story.color} p-6 pt-16 flex flex-col gap-4`}
+                  className={`absolute inset-0 bg-linear-to-br ${story.color} p-6 pt-16 flex flex-col gap-4`}
                 >
                   {/* Abstract UI Elements */}
                   <div className="w-full h-32 rounded-2xl bg-background/50 backdrop-blur-md border border-white/10 shadow-sm" />

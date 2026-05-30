@@ -30,7 +30,7 @@ export function HowItWorks() {
 
         <div className="relative">
           {/* Connecting Line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent/30 via-secondary/30 to-accent/30 hidden lg:block transform -translate-x-1/2" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-linear-to-b from-accent/30 via-secondary/30 to-accent/30 hidden lg:block transform -translate-x-1/2" />
 
           <div className="space-y-12 lg:space-y-20">
             {steps.map((step, idx) => (

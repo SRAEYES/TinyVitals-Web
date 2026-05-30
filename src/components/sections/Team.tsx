@@ -64,11 +64,11 @@ export function Team() {
               className="group"
             >
               <div className="relative p-8 rounded-3xl bg-card border border-border/50 hover:border-accent/30 transition-colors h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
+                <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
                 
                 <div className="relative z-10">
                   {/* Avatar */}
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-secondary flex items-center justify-center text-white font-bold text-xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                  <div className="w-16 h-16 rounded-full bg-linear-to-br from-accent to-secondary flex items-center justify-center text-white font-bold text-xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
                     {member.initials}
                   </div>
 

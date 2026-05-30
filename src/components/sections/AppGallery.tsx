@@ -38,7 +38,7 @@ export function AppGallery() {
               whileHover={{ y: -10, scale: 1.02 }}
               className="group"
             >
-              <div className="relative h-96 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/30 transition-colors bg-gradient-to-br from-accent/10 to-secondary/10 shadow-xl">
+              <div className="relative h-96 rounded-3xl overflow-hidden border border-border/50 hover:border-accent/30 transition-colors bg-linear-to-br from-accent/10 to-secondary/10 shadow-xl">
                 {/* Phone Frame */}
                 <div className="absolute inset-6 rounded-2xl bg-card border-2 border-foreground/10 overflow-hidden shadow-inner">
                   <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-50 bg-foreground/5">
@@ -46,17 +46,17 @@ export function AppGallery() {
                   </div>
                   
                   <div className="absolute inset-0 pt-8 flex flex-col items-center justify-center space-y-4 p-4 overflow-hidden">
-                    <div className="w-full h-20 rounded-xl bg-gradient-to-r from-accent/20 to-secondary/20 animate-pulse" />
+                    <div className="w-full h-20 rounded-xl bg-linear-to-r from-accent/20 to-secondary/20 animate-pulse" />
                     <div className="space-y-3 w-full">
                       <div className="h-3 bg-foreground/10 rounded-full w-3/4 animate-pulse" />
                       <div className="h-3 bg-foreground/10 rounded-full w-full animate-pulse" />
                       <div className="h-3 bg-foreground/10 rounded-full w-2/3 animate-pulse" />
                     </div>
-                    <div className="w-full h-24 rounded-lg bg-gradient-to-r from-secondary/20 to-accent/20 mt-4 animate-pulse" />
+                    <div className="w-full h-24 rounded-lg bg-linear-to-r from-secondary/20 to-accent/20 mt-4 animate-pulse" />
                   </div>
                 </div>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
               <div className="mt-6">
